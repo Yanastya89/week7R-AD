@@ -1,0 +1,107 @@
+* {
+    margin: 0 ;
+    padding: 0 ;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 3vw;
+    font-weight: 800;
+    height: 100%;
+   
+   
+}
+ .grid-example {
+    display: grid;
+grid-template: repeat(4, minmax(min-content, max-content)) 1fr minmax(min-content, max-content) / 1fr;
+grid-template-areas:
+            "grid-example-header "
+            "grid-example-content "
+            " grid-example-aside"
+             "grid-example-footer ";
+} 
+
+
+
+.grid-example-header { grid-area: grid-example-header;
+    background: rgb(184, 179, 179);
+    text-align: center;
+  padding: 2rem;
+}
+
+.grid-example-aside { grid-area: grid-example-aside;
+    background: rgb(198, 227, 166);
+      padding: 2rem;}
+      
+      .grid-example-footer{
+       grid-area:grid-example-footer;
+       display: flex; 
+       flex: 1 0 ;
+       background: rgb(184, 179, 179);
+       padding: 1.5rem;
+       justify-content: space-around;
+      }
+
+      .grid-example-footer > div {
+        background: lightgray;
+       padding: 1rem;
+       margin: 0.5rem;
+       text-align: center;
+    flex: 1 0 15% ;
+             
+       }
+
+       .grid-example-content {
+        background-color:antiquewhite;
+        grid-area: grid-example-content;
+        padding: 2rem;
+        display: flex;
+         flex-direction: column;
+    }
+    
+    .grid-example-content__main-part {
+        flex: 1;
+    }
+    
+    .grid-example-content__bottom-part {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem 2rem;
+    }
+    
+    .grid-example-content__bottom-part > div {
+        background: rgb(232, 192, 145);
+        padding: 2rem 1rem;
+    }
+    
+    .grid-example-content__bottom-part > div:nth-child(1),
+    .grid-example-content__bottom-part > div:nth-child(2) {
+        flex: 0 1 calc(50% - 1rem);
+    }
+    
+    .grid-example-content__bottom-part > div:nth-child(3) {
+        flex-grow: 1;
+    }
+     
+    @media screen and (min-width: 768px) {
+        html {
+            font-size: 2.5vw;
+        }
+        
+       .grid-example {
+       /*  display: grid;  */
+           grid-template-columns:1fr 1fr 1fr 1fr;
+        grid-template-rows:10% 1fr 0.2fr;
+            grid-template-areas:
+            "grid-example-header grid-example-header grid-example-header grid-example-header"
+            "grid-example-content grid-example-content grid-example-aside grid-example-aside"
+             "grid-example-footer grid-example-footer grid-example-footer grid-example-footer";
+        
+            }
+        }
+
+        @media screen and (man-width: 767px) {
+           .grid-example {
+            display: none;
+        }
+           }
